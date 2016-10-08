@@ -8,12 +8,12 @@
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(24, PIN);
  
 uint8_t  offset = 0; // Position of spinny eyes
-uint32_t color  = 0xffcccccc; // Colour is grey/white
+uint32_t color  = 27665; // Colour is green
 uint32_t prevTime;
  
 void setup() {
   pixels.begin();
-  pixels.setBrightness(50); // 1/3 brightness
+  pixels.setBrightness(70); // 1/3 brightness
   
 }
  
