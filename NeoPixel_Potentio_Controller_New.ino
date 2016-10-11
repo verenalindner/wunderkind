@@ -5,7 +5,7 @@
 
 #include <Adafruit_NeoPixel.h>
 #define PIN 3
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(16, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(24, PIN, NEO_GRB + NEO_KHZ800);
 
 int potPin = 2;
 int val = 0;
@@ -25,7 +25,7 @@ void setup() {
 void loop() {
   
   reading = analogRead(potPin);
-  val = (reading/1024.0) * 17;
+  val = (reading/1024.0) * 25; // used to be 17 for the 16 LED
   colorVal = (reading/1024.0) * 255;
   
     strip.setBrightness(40);
@@ -37,7 +37,7 @@ void loop() {
        t=x-1;
        strip.setPixelColor(t, strip.Color(0,0,0));
       }
-      for (x=val; x<17; x++) 
+      for (x=val; x<25; x++) //used to be 17 for the 16 LED
       { 
         strip.setPixelColor(x,222,222,222);
         strip.show();
