@@ -1,0 +1,7 @@
+REACHED = 555;
+WRONG = 666;
+ERROR = -1;
+
+exports.REACHED = REACHED;
+exports.WRONG = WRONG;
+exports.ERROR = ERROR;
