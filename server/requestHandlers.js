@@ -1,6 +1,9 @@
 var destinator = require("./destinator");
 var navigator = require("./navigator");
 
+//the currentDirection in degrees
+var currentDir = 0;
+
 function hello(req, res) {
     res.send('hello');
 }
@@ -28,6 +31,7 @@ function getNextStep(req, res) {
     var p = req.params;
 
     navigator.getNextStep(p.lng, p.lat, function(degree) {
+
         if (degree >= 0) {
             res.send('turn degrees: ' + degree);
         } else
@@ -39,7 +43,22 @@ function checkPos(req, res) {
 
 }
 
+function setDir(req, res){
+    var p = req.params;
+    currentDir = p.dir; 
+    console.log("the current direction is "+currentDir);
+}
+
+
+function getDir(req, res){
+    console.log("sending the current direction of "+currentDir);
+    res.send(currentDir);
+
+}
+
 exports.hello = hello;
 exports.start = start;
 exports.checkPos = checkPos;
 exports.getNextStep = getNextStep;
+exports.setDir = setDir;
+exports.getDir = getDir;
